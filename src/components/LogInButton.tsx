@@ -12,10 +12,10 @@ export function LoginButton({ onLogin }: Props) {
 		<button
 			onClick={async () => {
 				try {
-					const response = await auth.loginPopup()
-					console.log({ response })
-					setAccount(response.account)
-					onLogin?.(response)
+					const loginResponse = await auth.loginPopup()
+					console.log({ loginResponse })
+					setAccount(loginResponse.account)
+					onLogin?.(loginResponse)
 				} catch (e) {
 					alert('Login failed')
 					setAccount(null)

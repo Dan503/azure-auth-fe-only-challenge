@@ -16,10 +16,3 @@ const msalConfig: MSAL.Configuration = {
 }
 
 export const auth = new MSAL.UserAgentApplication(msalConfig)
-
-// auth.handleRedirectCallback((error, response) => {
-// 	if (error) {
-// 		throw error
-// 	}
-// 	console.log(response)
-// })
