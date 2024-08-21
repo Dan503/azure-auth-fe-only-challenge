@@ -1,11 +1,14 @@
 import * as MSAL from 'msal'
 
+const baseUri = `${window.location.origin}/azure-auth-fe-only-challenge/`
+
 const msalConfig: MSAL.Configuration = {
 	auth: {
 		clientId: import.meta.env.VITE_AZURE_CLIENT_ID,
-		redirectUri: 'http://localhost:5173/azure-auth-fe-only-challenge/',
+		redirectUri: baseUri,
 		// I'm using this because I'm testing with a personal microsoft account
 		authority: 'https://login.microsoftonline.com/consumers',
+		postLogoutRedirectUri: baseUri,
 	},
 	cache: {
 		cacheLocation: 'sessionStorage',
