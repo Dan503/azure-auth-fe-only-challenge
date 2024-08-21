@@ -20,8 +20,8 @@ export function UnauthorizedPage() {
 
 	return (
 		<>
-			<h1>Unauthorized Page</h1>
-			<p>You are not authorized to view that page</p>
+			<h1>Unauthorized</h1>
+			<p>You are not authorized to view this page</p>
 
 			<p>
 				<LoginButton />

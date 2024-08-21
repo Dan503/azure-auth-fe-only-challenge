@@ -19,13 +19,13 @@
 }
 
 a {
-	font-weight: 500;
+	font-weight: bold;
 	color: #fff564;
-	text-decoration: inherit;
+	text-decoration: underline;
 }
 a:hover {
 	color: #ffc664;
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 body {
@@ -34,6 +34,7 @@ body {
 	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
+	font-size: 2em;
 }
 
 h1 {

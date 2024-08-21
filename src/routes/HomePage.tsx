@@ -8,8 +8,13 @@ export function HomePage() {
 	return (
 		<>
 			<h1>Home page</h1>
+			{account && (
+				<h2>
+					Welcome <strong>{account.name}</strong>!
+				</h2>
+			)}
 			<p>
-				<Link to="/secure">Go to secure page</Link>
+				Navigate to the <Link to="/secure">secure page</Link>
 			</p>
 			<p>{account ? <LogoutButton /> : <LoginButton />}</p>
 		</>
