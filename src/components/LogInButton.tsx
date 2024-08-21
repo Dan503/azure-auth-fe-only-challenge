@@ -1,11 +1,26 @@
+import { AuthResponse } from 'msal'
 import { auth } from '../auth'
+import { useAuthContext } from './AuthContext'
 
-export function LoginButton() {
+interface Props {
+	onLogin?: (authResponse: AuthResponse) => void
+}
+
+export function LoginButton({ onLogin }: Props) {
+	const { setAccount } = useAuthContext()
 	return (
 		<button
 			onClick={async () => {
-				const response = await auth.loginPopup()
-				console.log({ response })
+				try {
+					const response = await auth.loginPopup()
+					console.log({ response })
+					setAccount(response.account)
+					onLogin?.(response)
+				} catch (e) {
+					alert('Login failed')
+					setAccount(null)
+					console.error(e)
+				}
 			}}
 		>
 			Login
