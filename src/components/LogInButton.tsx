@@ -12,10 +12,16 @@ export function LoginButton({ onLogin }: Props) {
 		<button
 			onClick={async () => {
 				try {
-					const loginResponse = await auth.loginPopup()
-					console.log({ loginResponse })
-					setAccount(loginResponse.account)
-					onLogin?.(loginResponse)
+					if (auth.getLoginInProgress()) {
+						alert(
+							'There is another existing login session blocking your login attempt',
+						)
+					} else {
+						const loginResponse = await auth.loginPopup()
+						console.log({ loginResponse })
+						setAccount(loginResponse.account)
+						onLogin?.(loginResponse)
+					}
 				} catch (e) {
 					alert('Login failed')
 					setAccount(null)

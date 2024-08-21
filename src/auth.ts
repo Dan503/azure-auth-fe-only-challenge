@@ -12,6 +12,7 @@ const msalConfig: MSAL.Configuration = {
 		redirectUri: baseUri,
 		// I'm using this because I'm testing with a personal microsoft account
 		authority: 'https://login.microsoftonline.com/consumers',
+		// This is supposed to redirect back to the home page after logging out. It doesn't appear to be working.
 		postLogoutRedirectUri: baseUri,
 	},
 	cache: {
