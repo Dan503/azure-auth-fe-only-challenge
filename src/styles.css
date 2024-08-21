@@ -25,6 +25,7 @@ a {
 }
 a:hover {
 	color: #ffc664;
+	text-decoration: underline;
 }
 
 body {
@@ -68,7 +69,7 @@ button:focus-visible {
 		color: #4d56ef;
 	}
 	a:hover {
-		color: #6169fd;
+		color: #6305fa;
 	}
 	button {
 		background-color: #f9f9f9;
