@@ -1,19 +1,15 @@
 import { auth } from '../auth'
 import { useAuthContext } from './AuthContext'
 
-interface Props {
-	onLogout?: () => void
-}
-
-export function LogoutButton({ onLogout }: Props) {
+export function LogoutButton() {
 	const { setAccount } = useAuthContext()
 	return (
 		<button
 			onClick={async () => {
 				try {
-					await auth.logout()
+					const authResult = await auth
+					await authResult.logoutPopup()
 					setAccount(null)
-					onLogout?.()
 				} catch (e) {
 					alert('Logout failed')
 					console.error(e)

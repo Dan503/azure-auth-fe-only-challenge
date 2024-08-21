@@ -1,9 +1,9 @@
-import { Account } from 'msal'
+import { AccountInfo } from '@azure/msal-browser'
 import { createContext, useContext } from 'react'
 
 export interface AuthContextValue {
-	account: Account | null
-	setAccount: React.Dispatch<React.SetStateAction<Account | null>>
+	account: AccountInfo | null
+	setAccount: React.Dispatch<React.SetStateAction<AccountInfo | null>>
 }
 
 export const defaultAuthContext: AuthContextValue = {

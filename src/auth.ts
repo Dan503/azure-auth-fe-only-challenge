@@ -1,4 +1,4 @@
-import * as MSAL from 'msal'
+import * as MSAL from '@azure/msal-browser'
 
 const baseUri = `${window.location.origin}/azure-auth-fe-only-challenge/`
 
@@ -20,4 +20,4 @@ const msalConfig: MSAL.Configuration = {
 	},
 }
 
-export const auth = new MSAL.UserAgentApplication(msalConfig)
+export const auth = MSAL.createStandardPublicClientApplication(msalConfig)

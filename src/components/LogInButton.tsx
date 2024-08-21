@@ -1,27 +1,15 @@
-import { AuthResponse } from 'msal'
 import { auth } from '../auth'
 import { useAuthContext } from './AuthContext'
 
-interface Props {
-	onLogin?: (authResponse: AuthResponse) => void
-}
-
-export function LoginButton({ onLogin }: Props) {
+export function LoginButton() {
 	const { setAccount } = useAuthContext()
 	return (
 		<button
 			onClick={async () => {
 				try {
-					if (auth.getLoginInProgress()) {
-						alert(
-							'There is another existing login session blocking your login attempt',
-						)
-					} else {
-						const loginResponse = await auth.loginPopup()
-						console.log({ loginResponse })
-						setAccount(loginResponse.account)
-						onLogin?.(loginResponse)
-					}
+					const authResult = await auth
+					const loginResponse = await authResult.loginPopup()
+					setAccount(loginResponse.account)
 				} catch (e) {
 					alert('Login failed')
 					setAccount(null)
