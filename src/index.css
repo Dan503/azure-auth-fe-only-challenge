@@ -1,3 +1,8 @@
+/**
+	Most of these styles are the styles that
+	come with default Vite project styles
+*/
+
 :root {
 	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1.5;
@@ -37,7 +42,7 @@ h1 {
 
 button {
 	border-radius: 8px;
-	border: 1px solid transparent;
+	border: 2px solid currentColor;
 	padding: 0.6em 1.2em;
 	font-size: 1em;
 	font-weight: 500;
